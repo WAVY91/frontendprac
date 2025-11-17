@@ -1,0 +1,18 @@
+.but{
+    border: none;
+    background-color: red;
+    color: white;
+    height: 50px;
+    width: 200px;
+    border-radius: 15px;
+}
+
+.props-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* space between cards */
+  flex-wrap: wrap; /* wrap to next line on small screens */
+  background-color: #f2f2f2; /* light gray background */
+  padding: 40px;
+  min-height: 100vh; /* full screen height */
+}
