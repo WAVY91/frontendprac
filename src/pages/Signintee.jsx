@@ -23,7 +23,6 @@ const Signintee = () => {
 
         setFormData({ email: "", password: "" });
 
-        // Navigate to dashboard
         navigate("/dashboardtee");
         })
         .catch((err) => {
