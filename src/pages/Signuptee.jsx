@@ -3,93 +3,53 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Signuptee = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-  });
+    const [formData, setFormData] = useState({ firstName: "", lastName: "", email: "", password: "", });
 
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-  const handleChange = (e) =>
+    const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+    const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (
-      !formData.firstName ||
-      !formData.lastName ||
-      !formData.email ||
-      !formData.password
-    ) {
-      alert("Please fill in all input fields");
-      return;
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.password ) {
+        alert("Please fill in all input fields");
+            return;
     }
 
-    axios
-      .post("http://localhost:3000/user/signup", formData)
-      .then((res) => {
+    axios .post("https://back-schema.onrender.com/user/signup", formData)
+        .then((res) => {
         alert("Signup successful! Please login.");
 
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          password: "",
-        });
+        setFormData({ firstName: "", lastName: "", email: "", password: "", });
 
         navigate("/signintee");
-      })
-      .catch((err) => {
+        })
+        .catch((err) => {
         console.error("Signup error:", err);
         alert("Signup failed, try again");
-      });
-  };
+        });
+    };
 
-  return (
+    return (
     <>
-      <div>
+        <div>
         <h3>Create Your Account</h3>
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-            placeholder="first name"
-          />
+            <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} placeholder="first name" />
 
-          <input
-            type="text"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-            placeholder="last name"
-          />
+            <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} placeholder="last name" />
 
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="email"
-          />
+            <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="email" />
 
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="password"
-          />
+            <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="password" />
 
-          <button type="submit">Sign up</button>
+            <button type="submit">Sign up</button>
         </form>
-      </div>
+        </div>
     </>
-  );
+    );
 };
 
 export default Signuptee;
