@@ -3,61 +3,46 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Signintee = () => {
-  const [formData, setFormData] = useState({ email: "", password: "" });
-  const navigate = useNavigate();
+    const [formData, setFormData] = useState({ email: "", password: "" });
+    const navigate = useNavigate();
 
-  const handleChange = (e) =>
+    const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+    const handleSubmit = (e) => {
     e.preventDefault();
 
-    // VALIDATION
     if (!formData.email || !formData.password) {
-      alert("Please fill in all input fields");
-      return;
+        alert("Please fill in all input fields");
+        return;
     }
 
-    axios
-      .post("http://localhost:3000/user/signin", formData)
-      .then((res) => {
+    axios.post("http://localhost:3000/user/signin", formData)
+        .then((res) => {
         alert("Login successful!");
 
-        // ✅ CLEAR INPUTS
         setFormData({ email: "", password: "" });
 
         // Navigate to dashboard
         navigate("/dashboardtee");
-      })
-      .catch((err) => {
+        })
+        .catch((err) => {
         alert("Invalid credentials. Try again.");
-      });
-  };
+        });
+    };
 
-  return (
+    return (
     <>
-      <div>
+        <div>
         <h3>Welcome Back</h3>
         <form onSubmit={handleSubmit}>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="email"
-          />
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="password"
-          />
-          <button type="submit">Sign in</button>
+            <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="email" />
+            <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="password" />
+            <button type="submit">Sign in</button>
         </form>
-      </div>
+        </div>
     </>
-  );
+    );
 };
 
 export default Signintee;
