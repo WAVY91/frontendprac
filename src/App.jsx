@@ -14,7 +14,9 @@ import Signintee from './pages/Signintee'
 const App = () => {
   return (
     <>
+    <Navbar/>
     <Routes>
+      <Route path='/' element={<Home/>}/>
       <Route path='/signup' element={<Signup/>}/>
       <Route path='/signuserup' element={<Signuserup/>}/>
       <Route path='/signlow' element={<Signlow/>}/>
