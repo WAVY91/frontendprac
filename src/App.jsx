@@ -10,6 +10,8 @@ import Dashboard from './pages/Dashboard'
 import Props from './pages/Props'
 import Signuptee from './pages/Signuptee';
 import Signintee from './pages/Signintee'
+import Dashboardtee from './pages/Dashboardtee'
+import Navbar from './components/Navbar'
 
 const App = () => {
   return (
@@ -25,6 +27,7 @@ const App = () => {
       <Route path='/props' element={<Props/>}/>
       <Route path='/signuptee' element={<Signuptee/>}/>
       <Route path='/signintee' element={<Signintee/>}/>
+      <Route path='/dashboardtee' element={<Dashboardtee/>}/>
       <Route/>
     </Routes>
     </>

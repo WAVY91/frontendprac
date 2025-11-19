@@ -16,3 +16,13 @@
   padding: 40px;
   min-height: 100vh; /* full screen height */
 }
+.too{
+  display: flex;
+  justify-content: space-between;
+}
+.too ul{
+  list-style: none;
+}
+.too ul li{
+  display: inline;
+}
