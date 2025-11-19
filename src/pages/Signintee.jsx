@@ -24,7 +24,7 @@ const Signintee = () => {
 
         setFormData({email: "", password: "", });
 
-            navigate("/dashboardtee");
+            navigate("/dashboardtee", {state: {user: res.data.user}});
         } else {
             alert(res.data.message || "Login failed");
         }
