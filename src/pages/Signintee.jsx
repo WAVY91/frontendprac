@@ -24,13 +24,14 @@ const Signintee = () => {
 
         setFormData({email: "", password: "", });
 
-            navigate("/dashboardtee", );
+        localStorage.setItem("token", res.data.token);
+            navigate("/dashboardtee", {state: {user: res.data.user}});
         } else {
             alert(res.data.message || "Login failed");
         }
         })
         .catch((err) => {
-        alert("Invalid credentials. Try again.", err);
+        alert("Invalid credentials. Try again.");
         });
     };
 
