@@ -20,7 +20,7 @@ const Signintee = () => {
 axios.post("https://back-schema.onrender.com/user/signin", formData)
   .then((res) => {
     if (res.data.success) {
-      alert("Login successful!");
+      alert("Login successful!!");
       localStorage.setItem("token", res.data.token);
       navigate("/dashboardtee", { state: { user: res.data.user } });
     } else {
