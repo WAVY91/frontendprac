@@ -12,6 +12,7 @@ import Signuptee from './pages/Signuptee';
 import Signintee from './pages/Signintee'
 import Dashboardtee from './pages/Dashboardtee'
 import Navbar from './components/Navbar'
+import Home from './pages/Home'
 
 const App = () => {
   return (

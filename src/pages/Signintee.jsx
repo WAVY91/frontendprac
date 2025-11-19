@@ -17,17 +17,17 @@ const Signintee = () => {
         return;
     }
 
-    axios.post("http://localhost:3000/user/signin", formData)
+        axios.post("https://back-schema.onrender.com/user/signin", formData)
         .then((res) => {
-        alert("Login successful!");
+        if (res.data.success === true) {
+            alert("Login successful!");
 
-        localStorage.setItem('token', res.data.token)
+        setFormData({email: "", password: "", });
 
-        localStorage.setItem('user', JSON.stringify(res.data.user))
-
-        setFormData({ email: "", password: "" });
-
-        navigate("/dashboardtee");
+            navigate("/dashboardtee");
+        } else {
+            alert(res.data.message || "Login failed");
+        }
         })
         .catch((err) => {
         alert("Invalid credentials. Try again.");

@@ -18,11 +18,25 @@
 }
 .too{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  background-color: darkmagenta;
 }
 .too ul{
   list-style: none;
 }
 .too ul li{
   display: inline;
+  padding: 15px, 0px;
+}
+.too ul li a{
+  text-decoration: none;
+  padding-left: 25px;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+}
+.too h4{
+  color: white;
+  /* font-size: 18px; */
+  font-weight: 600;
 }
