@@ -30,7 +30,7 @@ const Signintee = () => {
         }
         })
         .catch((err) => {
-        alert("Invalid credentials. Try again.");
+        alert("Invalid credentials. Try again.", err);
         });
     };
 
